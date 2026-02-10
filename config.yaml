@@ -1,10 +1,5 @@
 categories: ["cs.RO", "cs.LG", "cs.AI"]
-keywords:
-  # Reinforcement Learning
-  # Imitation Learning
-  - "reinforcement learning"
-  - "imitation learning"
-  
+keywords:  
   # Manipulation
   - "locomotion"
   - "manipulation"
