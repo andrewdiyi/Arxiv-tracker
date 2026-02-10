@@ -2,35 +2,21 @@ categories: ["cs.RO", "cs.LG", "cs.AI"]
 keywords:
   # Humanoid Robotics Core
   - "humanoid robot"
-  - "legged locomotion"
-  - "bipedal robot"
-  - "robot locomotion"
-  - "whole-body control"
   
   # Reinforcement Learning
-  - "reinforcement learning"
-  - "deep RL"
-  - "robot learning"
-  - "RL policy"
-  
   # Imitation Learning
+  - "reinforcement learning"
   - "imitation learning"
-  - "behavioral cloning"
-  - "inverse reinforcement learning"
-  - "from demonstrations"
   
   # Manipulation
-  - "robot manipulation"
-  - "object manipulation"
+  - "locomotion"
+  - "manipulation"
   - "loco manipulation"
-  - "grasping"
-  - "whole-body manipulation"
+  - "whole-body control"
   
-  # Vision Language & Multimodal
+  # Vision Language
   - "VLA"
   - "visual language action"
-  - "multimodal robot"
-  - "learning from human"
   - "end-to-end learning"
 
 # exclude_keywords: # 选择排除的关键词
