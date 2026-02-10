@@ -1,16 +1,12 @@
 categories: ["cs.RO", "cs.LG", "cs.AI"]
 keywords:  
-  # Manipulation
   - "locomotion"
   - "manipulation"
   - "whole body control"
-  
-  # Vision Language
   - "VLA"
 
-# exclude_keywords: # 选择排除的关键词
-#   - "Large Language Model"
-#   - "LLM"
+exclude_keywords: # 选择排除的关键词
+  - "LLM"
 
 logic: "AND"                # 组间逻辑：categories 与 keywords 间 AND/OR
 max_results: 30
