@@ -13,9 +13,9 @@ ARXIV_HTTP  = "http://export.arxiv.org/api/query"
 
 # 可通过环境变量调整（Windows PowerShell 示例见下）
 DEFAULT_TIMEOUT = float(os.getenv("ARXIV_TIMEOUT", "45"))      # 单次请求超时（秒）
-MAX_ATTEMPTS    = int(os.getenv("ARXIV_MAX_ATTEMPTS", "6"))    # 尝试次数
-BASE_PAUSE      = float(os.getenv("ARXIV_PAUSE", "1.5"))       # 基础退避（秒）
-MAX_SLEEP       = float(os.getenv("ARXIV_MAX_SLEEP", "20"))    # 退避上限（秒）
+MAX_ATTEMPTS    = int(os.getenv("ARXIV_MAX_ATTEMPTS", "8"))    # 尝试次数
+BASE_PAUSE      = float(os.getenv("ARXIV_PAUSE", "3.0"))       # 基础退避（秒）
+MAX_SLEEP       = float(os.getenv("ARXIV_MAX_SLEEP", "30"))    # 退避上限（秒）
 
 RETRYABLE_STATUS = {429, 500, 502, 503, 504}
 
@@ -31,9 +31,9 @@ _session = requests.Session()
 def _sleep_backoff(attempt: int) -> None:
     """
     指数退避 + 抖动。第 1 次失败等待 ~BASE_PAUSE，
-    之后 2^n 递增，并加 0~0.5 随机抖动，封顶 MAX_SLEEP。
+    之后 2^n 递增，并加 0~1.0 随机抖动，封顶 MAX_SLEEP。
     """
-    delay = min(BASE_PAUSE * (2 ** (attempt - 1)) + random.uniform(0, 0.5), MAX_SLEEP)
+    delay = min(BASE_PAUSE * (2 ** (attempt - 1)) + random.uniform(0, 1.0), MAX_SLEEP)
     time.sleep(delay)
 
 
@@ -80,6 +80,9 @@ def fetch_arxiv_feed(query: str,
     """
     拉取 arXiv Atom Feed。先 HTTPS，失败则 HTTP 回退。
     """
+    # Small initial delay to avoid rate limiting
+    time.sleep(random.uniform(0.5, 1.0))
+    
     params = {
         "search_query": query,
         "start": str(start),
