@@ -1,8 +1,5 @@
 categories: ["cs.RO", "cs.LG", "cs.AI"]
 keywords:
-  # Humanoid Robotics Core
-  - "humanoid robot"
-  
   # Reinforcement Learning
   # Imitation Learning
   - "reinforcement learning"
@@ -11,13 +8,10 @@ keywords:
   # Manipulation
   - "locomotion"
   - "manipulation"
-  - "loco manipulation"
-  - "whole-body control"
+  - "whole body control"
   
   # Vision Language
   - "VLA"
-  - "visual language action"
-  - "end-to-end learning"
 
 # exclude_keywords: # 选择排除的关键词
 #   - "Large Language Model"
